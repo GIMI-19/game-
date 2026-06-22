@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>لعبة إطلاق نار</title>
+
+<style>
+body{
+    text-align:center;
+    overflow:hidden;
+}
+
+#enemy{
+    position:absolute;
+    font-size:50px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔫 لعبة إطلاق نار</h1>
+<p id="score">ا0gol</p>
+
+<div id="enemy">👾</div>
+
+<script>
+let score = 0;
+let enemy = document.getElementById("enemy");
+
+function moveEnemy(){
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 100);
+
+    enemy.style.left = x + "px";
+    enemy.style.top = y + "px";
+}
+
+enemy.onclick = function(){
+    score++;
+    document.getElementById("score").innerText =
+    "النقاط: " + score;
+
+    moveEnemy();
+}
+
+moveEnemy();
+</script>
+
+</body>
+</html>
